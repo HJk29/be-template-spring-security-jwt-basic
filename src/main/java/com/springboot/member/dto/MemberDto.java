@@ -5,10 +5,12 @@ import com.springboot.stamp.Stamp;
 import com.springboot.validator.NotSpace;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.util.Arrays;
 
 public class MemberDto {
     @Getter
@@ -17,6 +19,9 @@ public class MemberDto {
         @NotBlank
         @Email
         private String email;
+
+        @NotBlank
+        private String password; // 추가
 
         @NotBlank(message = "이름은 공백이 아니어야 합니다.")
         private String name;

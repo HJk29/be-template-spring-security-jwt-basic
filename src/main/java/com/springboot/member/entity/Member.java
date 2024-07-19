@@ -23,6 +23,12 @@ public class Member extends Auditable {
     @Column(nullable = false, updatable = false, unique = true)
     private String email;
 
+    @Column(nullable = false) // 추가
+    private String password;
+
+    @ElementCollection(fetch = FetchType.EAGER) //추가
+    private List<String> roles = new ArrayList<>(); //데이터베이스 사용 권환 저장
+
     @Column(length = 100, nullable = false)
     private String name;
 
